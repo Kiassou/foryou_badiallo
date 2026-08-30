@@ -63,11 +63,6 @@ setTimeout(() => {
   // Arrête le tremblement
   this.giftShaking = false;
 
-  // Lance la célébration
-  setTimeout(() => {
-    this.launchCelebration();
-  }, 100);
-
 }, 850);
 
 

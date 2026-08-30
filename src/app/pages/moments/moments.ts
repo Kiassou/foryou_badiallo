@@ -66,7 +66,7 @@ export class Moments {
         'auto_stories',
 
       image:
-        'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=85'
+        'assets/images/les_filles3.png'
     },
 
 
@@ -90,7 +90,7 @@ export class Moments {
         'favorite',
 
       image:
-        'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=85'
+        'assets/images/les_filles4.png'
     },
 
 
@@ -114,7 +114,7 @@ export class Moments {
         'sentiment_satisfied',
 
       image:
-        'https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=900&q=85'
+        'assets/images/les_filles6.png'
     },
 
 
@@ -138,7 +138,7 @@ export class Moments {
         'sunny',
 
       image:
-        'https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?auto=format&fit=crop&w=900&q=85'
+        'assets/images/les_filles7.png'
     },
 
 
@@ -162,7 +162,7 @@ export class Moments {
         'photo_camera',
 
       image:
-        'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=85'
+        'assets/images/dialloetme.png'
     },
 
 

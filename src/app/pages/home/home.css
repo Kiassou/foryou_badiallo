@@ -1602,6 +1602,279 @@ footer span {
 
 }
 
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.music-button {
+
+  position: fixed;
+
+  z-index: 50;
+
+  right: 1.5rem;
+
+  bottom: 1.5rem;
+
+  width: 58px;
+
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid rgba(244, 114, 182, .35);
+
+  border-radius: 50%;
+
+  background:
+    rgba(20, 16, 30, .85);
+
+  backdrop-filter: blur(18px);
+
+  color: #f9a8d4;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, .35),
+    0 0 25px rgba(244, 114, 182, .12);
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease;
+
+}
+
+
+.music-button:hover {
+
+  transform:
+    translateY(-4px)
+    scale(1.04);
+
+  background:
+    rgba(244, 114, 182, .12);
+
+  border-color:
+    rgba(244, 114, 182, .65);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, .4),
+    0 0 35px rgba(244, 114, 182, .2);
+
+}
+
+
+.music-button .material-symbols-outlined {
+
+  position: relative;
+
+  z-index: 2;
+
+  font-size: 25px;
+
+}
+
+
+/* =========================================================
+   PLAYING
+========================================================= */
+
+.music-button.playing {
+
+  animation:
+    musicFloat 2s ease-in-out infinite;
+
+}
+
+
+.music-button.playing::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: -7px;
+
+  border: 1px solid
+    rgba(244, 114, 182, .25);
+
+  border-radius: 50%;
+
+  animation:
+    musicRing 1.8s ease-out infinite;
+
+}
+
+
+/* =========================================================
+   PULSE
+========================================================= */
+
+.music-pulse {
+
+  position: absolute;
+
+  width: 6px;
+
+  height: 6px;
+
+  top: 8px;
+
+  right: 9px;
+
+  border-radius: 50%;
+
+  background: #f472b6;
+
+  opacity: 0;
+
+}
+
+
+.music-button.playing
+.music-pulse {
+
+  opacity: 1;
+
+  box-shadow:
+    0 0 10px #f472b6;
+
+  animation:
+    musicPulse 1s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
+   HIDDEN YOUTUBE PLAYER
+========================================================= */
+
+.youtube-player-wrapper {
+
+  position: fixed;
+
+  width: 1px;
+
+  height: 1px;
+
+  left: -100px;
+
+  bottom: 0;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes musicFloat {
+
+  0%,
+  100% {
+
+    transform:
+      translateY(0);
+
+  }
+
+  50% {
+
+    transform:
+      translateY(-4px);
+
+  }
+
+}
+
+
+@keyframes musicRing {
+
+  0% {
+
+    opacity: .8;
+
+    transform:
+      scale(.9);
+
+  }
+
+  100% {
+
+    opacity: 0;
+
+    transform:
+      scale(1.35);
+
+  }
+
+}
+
+
+@keyframes musicPulse {
+
+  0%,
+  100% {
+
+    transform:
+      scale(.8);
+
+    opacity: .5;
+
+  }
+
+  50% {
+
+    transform:
+      scale(1.3);
+
+    opacity: 1;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+  .music-button {
+
+    right: 1rem;
+
+    bottom: 1rem;
+
+    width: 52px;
+
+    height: 52px;
+
+  }
+
+  .music-button
+  .material-symbols-outlined {
+
+    font-size: 22px;
+
+  }
+
+}
+
 
 /* =========================================================
    MOBILE

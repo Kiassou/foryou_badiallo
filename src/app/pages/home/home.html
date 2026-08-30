@@ -607,4 +607,37 @@ class="menu-btn"
 
   </footer>
 
+  <!-- =====================================================
+     MUSIC PLAYER
+===================================================== -->
+
+<button
+  type="button"
+  class="music-button"
+  [class.playing]="musicPlaying"
+  (click)="toggleMusic()"
+  aria-label="Musique">
+
+  <span class="material-symbols-outlined">
+    {{ musicPlaying ? 'pause' : 'music_note' }}
+  </span>
+
+  <span class="music-pulse"></span>
+
+</button>
+
+
+<!-- =====================================================
+     YOUTUBE PLAYER
+===================================================== -->
+
+<div class="youtube-player-wrapper">
+
+  <div
+    #youtubePlayer
+    id="youtube-player">
+  </div>
+
+</div>
+
 </div>
