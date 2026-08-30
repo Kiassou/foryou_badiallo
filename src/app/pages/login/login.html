@@ -1,0 +1,233 @@
+<section class="login-page">
+
+  <!-- Background -->
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+
+  <!-- Stars -->
+  <div class="stars">
+    @for (star of stars; track $index) {
+      <span
+        class="star"
+        [style.left.%]="star.left"
+        [style.top.%]="star.top"
+        [style.animation-delay.s]="star.delay"
+        [style.animation-duration.s]="star.duration">
+      </span>
+    }
+  </div>
+
+  <!-- Floating hearts -->
+  <div class="hearts">
+    @for (heart of hearts; track $index) {
+      <span
+        class="heart"
+        [style.left.%]="heart.left"
+        [style.animation-delay.s]="heart.delay"
+        [style.animation-duration.s]="heart.duration">
+        ♥
+      </span>
+    }
+  </div>
+
+
+  <!-- Main -->
+  <main class="login-container">
+
+    <!-- Back -->
+    <button
+      type="button"
+      class="back-btn"
+      (click)="goBack()">
+
+      <span class="material-symbols-outlined">
+        arrow_back
+      </span>
+
+      <span>Retour</span>
+
+    </button>
+
+
+    <!-- Card -->
+    <div class="login-card">
+
+      <!-- Top icon -->
+      <div class="lock-wrapper">
+
+        <div class="lock-glow"></div>
+
+        <div class="lock-icon">
+          <span class="material-symbols-outlined">
+            lock
+          </span>
+        </div>
+
+      </div>
+
+
+      <!-- Heading -->
+      <div class="heading">
+
+        <span class="eyebrow">
+          ✨ UNE PETITE SURPRISE ✨
+        </span>
+
+        <h1>
+          Bienvenue
+        </h1>
+
+        <p>
+          Cette petite aventure est
+          <strong>juste pour toi</strong> ❤️
+        </p>
+
+      </div>
+
+
+      <!-- Form -->
+      <form
+        (ngSubmit)="login()"
+        #loginForm="ngForm"
+        novalidate>
+
+        <!-- Username -->
+        <div class="field">
+
+          <label for="username">
+            Username
+          </label>
+
+          <div class="input-wrapper">
+
+            <span class="material-symbols-outlined input-icon">
+              person
+            </span>
+
+            <input
+              id="username"
+              type="text"
+              name="username"
+              [(ngModel)]="username"
+              placeholder="Entre ton prénom"
+              autocomplete="username"
+              required
+              
+            />
+
+          </div>
+
+        </div>
+
+
+        <!-- Password -->
+        <div class="field">
+
+          <label for="password">
+            Password
+          </label>
+
+          <div class="input-wrapper">
+
+            <span class="material-symbols-outlined input-icon">
+              key
+            </span>
+
+            <input
+              id="password"
+              [type]="showPassword ? 'text' : 'password'"
+              name="password"
+              [(ngModel)]="password"
+              placeholder="Le petit secret..."
+              autocomplete="new-password"
+              required
+            />
+
+            <button
+              type="button"
+              class="password-toggle"
+              (click)="togglePassword()"
+              aria-label="Afficher ou masquer le mot de passe">
+
+              <span class="material-symbols-outlined">
+                {{ showPassword ? 'visibility_off' : 'visibility' }}
+              </span>
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- Error -->
+        @if (errorMessage) {
+
+          <div class="error-message">
+
+            <span class="material-symbols-outlined">
+              favorite
+            </span>
+
+            <span>
+              {{ errorMessage }}
+            </span>
+
+          </div>
+
+        }
+
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="login-btn"
+          [disabled]="isLoading">
+
+          @if (!isLoading) {
+
+            <span class="btn-icon">
+              ✨
+            </span>
+
+            <span>
+              Entrer dans la surprise
+            </span>
+
+            <span class="btn-arrow">
+              →
+            </span>
+
+          } @else {
+
+            <span class="loader"></span>
+
+            <span>
+              Préparation...
+            </span>
+
+          }
+
+        </button>
+
+      </form>
+
+
+      <!-- Bottom -->
+      <div class="card-footer">
+
+        <span></span>
+
+        <p>
+          Made with ♥ for Badiallo
+        </p>
+
+        <span></span>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</section>

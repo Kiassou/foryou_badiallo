@@ -1,0 +1,610 @@
+<div class="home-page">
+
+  <!-- ================================
+       BACKGROUND
+  ================================= -->
+
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <div class="stars">
+    @for (star of stars; track $index) {
+      <span
+        class="star"
+        [style.left.%]="star.left"
+        [style.top.%]="star.top"
+        [style.animation-delay.s]="star.delay"
+        [style.animation-duration.s]="star.duration">
+      </span>
+    }
+  </div>
+
+  <div class="floating-hearts">
+    @for (heart of hearts; track $index) {
+      <span
+        class="heart"
+        [style.left.%]="heart.left"
+        [style.animation-delay.s]="heart.delay"
+        [style.animation-duration.s]="heart.duration">
+        ♥
+      </span>
+    }
+  </div>
+
+
+<!-- ================================
+     NAVBAR
+================================= -->
+
+<header class="home-navbar">
+
+  <!-- BRAND -->
+
+  <div class="brand">
+
+<span class="brand-symbol">
+  ♥
+</span>
+
+<span class="brand-name">
+  Badiallo
+</span>
+
+  </div>
+
+  <!-- DESKTOP NAV -->
+
+  <nav class="desktop-nav">
+
+<a
+  routerLink="/home"
+  routerLinkActive="active"
+  [routerLinkActiveOptions]="{ exact: true }">
+
+  Accueil
+
+</a>
+
+
+<a
+  routerLink="/souvenirs"
+  routerLinkActive="active">
+
+  Souvenirs
+
+</a>
+
+
+<a
+  routerLink="/moments"
+  routerLinkActive="active">
+
+  Moments
+
+</a>
+
+
+<a
+  routerLink="/message"
+  routerLinkActive="active">
+
+  Message
+
+</a>
+
+  </nav>
+
+  <!-- ================================
+       AUTH ACTION
+  ================================= -->
+
+  <div class="nav-actions">
+
+@if (authService.isAuthenticated()) {
+
+  <button
+    type="button"
+    class="logout-btn"
+    (click)="logout()">
+
+    <span class="material-symbols-outlined">
+      logout
+    </span>
+
+    <span>
+      Déconnexion
+    </span>
+
+  </button>
+
+}
+
+  </div>
+
+  <!-- ================================
+       MOBILE MENU BUTTON
+  ================================= -->
+
+<button
+type="button"
+class="menu-btn"
+(click)="toggleMenu()">
+
+<span class="material-symbols-outlined">
+
+  {{ menuOpen ? 'close' : 'menu' }}
+
+</span>
+
+  </button>
+
+</header>
+
+
+  <!-- ================================
+       MOBILE MENU
+  ================================= -->
+
+  @if (menuOpen) {
+
+    <div class="mobile-menu">
+
+      <a
+        routerLink="/home"
+        (click)="closeMenu()">
+        <span class="material-symbols-outlined">
+          home
+        </span>
+        Accueil
+      </a>
+
+      <a
+        routerLink="/souvenirs"
+        (click)="closeMenu()">
+        <span class="material-symbols-outlined">
+          photo_library
+        </span>
+        Souvenirs
+      </a>
+
+      <a
+        routerLink="/moments"
+        (click)="closeMenu()">
+        <span class="material-symbols-outlined">
+          favorite
+        </span>
+        Moments
+      </a>
+
+      <a
+        routerLink="/message"
+        (click)="closeMenu()">
+        <span class="material-symbols-outlined">
+          mail
+        </span>
+        Message
+      </a>
+
+      <a
+        routerLink="/surprise"
+        (click)="closeMenu()">
+        <span class="material-symbols-outlined">
+          redeem
+        </span>
+        Surprise
+      </a>
+
+        @if (authService.isAuthenticated()) {
+
+    <button
+      type="button"
+      class="mobile-logout"
+      (click)="logout()">
+
+      <span class="material-symbols-outlined">
+        logout
+      </span>
+
+      Déconnexion
+
+    </button>
+
+  }
+
+    </div>
+
+  }
+
+
+  <!-- ================================
+       HERO
+  ================================= -->
+
+  <main class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+
+        <span>
+          TODAY IS YOUR DAY
+        </span>
+
+        <span class="badge-dot"></span>
+      </div>
+
+
+      <p class="hero-small">
+        ✨ Une journée pas comme les autres ✨
+      </p>
+
+
+      <h1>
+
+        <span class="title-light">
+          HAPPY
+        </span>
+
+        <span class="title-main">
+          BIRTHDAY
+        </span>
+
+      </h1>
+
+
+      <div class="name-block">
+
+        <span class="name-prefix">
+          DEAR
+        </span>
+
+        <h2>
+          BADIALLO
+        </h2>
+
+        <div class="name-line">
+          <span></span>
+          <i>♥</i>
+          <span></span>
+        </div>
+
+        <p>
+          CHEICK TOUNKARA
+        </p>
+
+      </div>
+
+
+      <p class="hero-description">
+        Aujourd'hui, le monde célèbre une personne
+        unique. Alors j'ai préparé quelque chose
+        de spécial rien que pour toi. 💕
+      </p>
+
+
+      <!-- CTA -->
+
+      <div class="hero-actions">
+
+        <button
+          type="button"
+          class="primary-btn"
+          (click)="goToSurprise()">
+
+          <span>🎁</span>
+
+          Découvrir la surprise
+
+          <span>→</span>
+
+        </button>
+
+        <button
+          type="button"
+          class="secondary-btn"
+          (click)="scrollToMemories()">
+
+          Voir les souvenirs
+
+          <span>↓</span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- ================================
+         DECORATIVE CAKE
+    ================================= -->
+
+    <div class="cake-wrapper">
+
+      <div class="cake-glow"></div>
+
+      <div class="cake">
+
+        <div class="candle">
+
+          <div class="flame"></div>
+
+          <div class="candle-body"></div>
+
+        </div>
+
+        <div class="cake-top"></div>
+
+        <div class="cake-middle"></div>
+
+        <div class="cake-bottom"></div>
+
+        <div class="plate"></div>
+
+      </div>
+
+      <p>
+        Make a wish ✨
+      </p>
+
+    </div>
+
+  </main>
+
+
+  <!-- ================================
+       COUNTDOWN
+  ================================= -->
+
+  <section class="countdown-section">
+
+    <div class="section-heading">
+
+      <span>
+        ✨ THE SPECIAL MOMENT ✨
+      </span>
+
+      <h2>
+        Une nouvelle année commence
+      </h2>
+
+    </div>
+
+
+    <div class="countdown">
+
+      <div class="time-card">
+        <strong>{{ countdown.days }}</strong>
+        <span>JOURS</span>
+      </div>
+
+      <div class="separator">
+        :
+      </div>
+
+      <div class="time-card">
+        <strong>{{ countdown.hours }}</strong>
+        <span>HEURES</span>
+      </div>
+
+      <div class="separator">
+        :
+      </div>
+
+      <div class="time-card">
+        <strong>{{ countdown.minutes }}</strong>
+        <span>MINUTES</span>
+      </div>
+
+      <div class="separator">
+        :
+      </div>
+
+      <div class="time-card">
+        <strong>{{ countdown.seconds }}</strong>
+        <span>SECONDES</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================================
+       QUICK CARDS
+  ================================= -->
+
+  <section
+    class="discover-section"
+    id="memories">
+
+    <div class="section-heading">
+
+      <span>
+        MADE WITH LOVE
+      </span>
+
+      <h2>
+        Une petite aventure pour toi
+      </h2>
+
+      <p>
+        Chaque endroit cache une petite partie
+        de cette surprise.
+      </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+
+      <!-- Souvenirs -->
+
+      <article
+        class="feature-card memories-card"
+        (click)="goTo('/souvenirs')">
+
+        <div class="card-icon">
+          📸
+        </div>
+
+        <div class="card-number">
+          01
+        </div>
+
+        <h3>
+          Souvenirs
+        </h3>
+
+        <p>
+          Quelques moments précieux
+          à ne jamais oublier.
+        </p>
+
+        <span class="card-link">
+          Explorer →
+        </span>
+
+      </article>
+
+
+      <!-- Moments -->
+
+      <article
+        class="feature-card moments-card"
+        (click)="goTo('/moments')">
+
+        <div class="card-icon">
+          💖
+        </div>
+
+        <div class="card-number">
+          02
+        </div>
+
+        <h3>
+          Moments
+        </h3>
+
+        <p>
+          Les petites histoires qui
+          rendent les souvenirs uniques.
+        </p>
+
+        <span class="card-link">
+          Découvrir →
+        </span>
+
+      </article>
+
+
+      <!-- Message -->
+
+      <article
+        class="feature-card message-card"
+        (click)="goTo('/message')">
+
+        <div class="card-icon">
+          💌
+        </div>
+
+        <div class="card-number">
+          03
+        </div>
+
+        <h3>
+          Un message
+        </h3>
+
+        <p>
+          Quelques mots écrits
+          spécialement pour toi.
+        </p>
+
+        <span class="card-link">
+          Lire →
+        </span>
+
+      </article>
+
+
+      <!-- Surprise -->
+
+      <article
+        class="feature-card surprise-card"
+        (click)="goToSurprise()">
+
+        <div class="card-icon">
+          🎁
+        </div>
+
+        <div class="card-number">
+          04
+        </div>
+
+        <h3>
+          La surprise
+        </h3>
+
+        <p>
+          Et pour finir...
+          quelque chose t'attend.
+        </p>
+
+        <span class="card-link">
+          Ouvrir →
+        </span>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================================
+       FINAL MESSAGE
+  ================================= -->
+
+  <section class="final-message">
+
+    <div class="final-line"></div>
+
+    <span>
+      MADE ESPECIALLY FOR
+    </span>
+
+    <h2>
+      BADIALLO
+    </h2>
+
+    <p>
+      With a little bit of love,
+      memories and magic. ♥
+    </p>
+
+    <div class="final-line"></div>
+
+  </section>
+
+
+  <!-- ================================
+       FOOTER
+  ================================= -->
+
+  <footer>
+
+    <p>
+      © {{ currentYear }} • A special birthday experience
+    </p>
+
+    <span>
+      Made with ♥
+    </span>
+
+  </footer>
+
+</div>

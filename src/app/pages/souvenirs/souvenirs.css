@@ -1,0 +1,1321 @@
+/* =========================================================
+   PAGE
+========================================================= */
+
+.souvenirs-page {
+
+  position: relative;
+
+  min-height: 100svh;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 10%,
+      rgba(139, 92, 246, .13),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 0% 50%,
+      rgba(236, 72, 153, .09),
+      transparent 30%
+    ),
+    #090711;
+
+  color: #fff;
+
+  padding-bottom: 5rem;
+
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background-orb {
+
+  position: absolute;
+
+  width: 30rem;
+  height: 30rem;
+
+  border-radius: 50%;
+
+  filter: blur(110px);
+
+  opacity: .1;
+
+  pointer-events: none;
+
+}
+
+.orb-1 {
+
+  top: 5rem;
+  left: -15rem;
+
+  background: #ec4899;
+
+  animation:
+    orbMove 15s ease-in-out infinite alternate;
+
+}
+
+.orb-2 {
+
+  right: -15rem;
+  bottom: 10rem;
+
+  background: #8b5cf6;
+
+  animation:
+    orbMove 18s ease-in-out infinite alternate-reverse;
+
+}
+
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.stars {
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+}
+
+.star {
+
+  position: absolute;
+
+  width: 2px;
+  height: 2px;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  animation:
+    twinkle ease-in-out infinite alternate;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.page-header {
+
+  position: relative;
+
+  z-index: 5;
+
+  width: min(1100px, 92%);
+
+  margin: auto;
+
+  padding:
+    2rem 0
+    4rem;
+
+}
+
+
+.back-btn {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: .4rem;
+
+  border: 0;
+
+  background: transparent;
+
+  color: rgba(255,255,255,.45);
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  font-size: .7rem;
+
+  transition:
+    color .3s ease,
+    transform .3s ease;
+
+}
+
+.back-btn:hover {
+
+  color: #fff;
+
+  transform:
+    translateX(-4px);
+
+}
+
+.back-btn .material-symbols-outlined {
+
+  font-size: 1rem;
+
+}
+
+
+.header-title {
+
+  max-width: 700px;
+
+  margin:
+    4rem auto 0;
+
+  text-align: center;
+
+  animation:
+    titleReveal .9s ease both;
+
+}
+
+.eyebrow {
+
+  color: #f9a8d4;
+
+  font-size: .55rem;
+
+  letter-spacing: .3em;
+
+}
+
+.header-title h1 {
+
+  margin:
+    .7rem 0;
+
+  font-size:
+    clamp(3rem, 8vw, 6rem);
+
+  line-height: 1;
+
+  background:
+    linear-gradient(
+      120deg,
+      #fff,
+      #f9a8d4,
+      #c084fc
+    );
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  color: transparent;
+
+}
+
+.header-title p {
+
+  max-width: 450px;
+
+  margin: auto;
+
+  color:
+    rgba(255,255,255,.45);
+
+  font-size: .8rem;
+
+  line-height: 1.8;
+
+}
+
+.header-decoration {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: .7rem;
+
+  margin-top: 1.5rem;
+
+}
+
+.header-decoration span {
+
+  width: 60px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(244,114,182,.5)
+    );
+
+}
+
+.header-decoration span:last-child {
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(244,114,182,.5),
+      transparent
+    );
+
+}
+
+.header-decoration i {
+
+  font-style: normal;
+
+  color: #f472b6;
+
+  animation:
+    heartbeat 1.8s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro-section {
+
+  position: relative;
+
+  z-index: 5;
+
+  width: min(900px, 92%);
+
+  margin:
+    0 auto 5rem;
+
+  display: grid;
+
+  grid-template-columns:
+    80px 1fr;
+
+  gap: 2rem;
+
+  align-items: start;
+
+}
+
+.intro-number {
+
+  color: rgba(244,114,182,.35);
+
+  font-size: .8rem;
+
+  letter-spacing: .15em;
+
+}
+
+.intro-text > span {
+
+  color:
+    rgba(255,255,255,.3);
+
+  font-size: .55rem;
+
+  letter-spacing: .25em;
+
+}
+
+.intro-text h2 {
+
+  max-width: 700px;
+
+  margin: .7rem 0;
+
+  font-size:
+    clamp(1.8rem, 4vw, 3rem);
+
+  line-height: 1.15;
+
+}
+
+.intro-text h2 em {
+
+  font-style: normal;
+
+  color: #f9a8d4;
+
+}
+
+.intro-text p {
+
+  max-width: 550px;
+
+  margin: 0;
+
+  color:
+    rgba(255,255,255,.4);
+
+  font-size: .75rem;
+
+  line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery {
+
+  position: relative;
+
+  z-index: 5;
+
+  width: min(1100px, 92%);
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 2rem;
+
+  align-items: start;
+
+}
+
+
+/* =========================================================
+   MEMORY CARD
+========================================================= */
+
+.memory-card {
+
+  position: relative;
+
+  padding: .7rem;
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  border-radius: 4px;
+
+  background:
+    rgba(255,255,255,.055);
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.25);
+
+  cursor: pointer;
+
+  transform:
+    rotate(var(--rotation));
+
+  opacity: 0;
+
+  animation:
+    cardReveal .8s ease forwards;
+
+  transition:
+    transform .45s cubic-bezier(.2,.8,.2,1),
+    box-shadow .45s ease,
+    border-color .45s ease;
+
+}
+
+.memory-card:hover {
+
+  z-index: 10;
+
+  transform:
+    rotate(0deg)
+    translateY(-10px)
+    scale(1.02);
+
+  border-color:
+    rgba(244,114,182,.3);
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,.45),
+    0 0 40px rgba(244,114,182,.06);
+
+}
+
+
+/* Featured */
+
+.memory-card.featured {
+
+  grid-row:
+    span 2;
+
+}
+
+.memory-card.featured
+.photo-wrapper {
+
+  aspect-ratio:
+    3 / 4;
+
+}
+
+
+/* =========================================================
+   PHOTO
+========================================================= */
+
+.photo-wrapper {
+
+  position: relative;
+
+  overflow: hidden;
+
+  aspect-ratio:
+    4 / 3;
+
+  background:
+    rgba(255,255,255,.05);
+
+}
+
+.photo-wrapper img {
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  filter:
+    saturate(.8)
+    contrast(.95);
+
+  transition:
+    transform .7s ease,
+    filter .5s ease;
+
+}
+
+.memory-card:hover
+.photo-wrapper img {
+
+  transform:
+    scale(1.07);
+
+  filter:
+    saturate(1)
+    contrast(1);
+
+}
+
+
+/* =========================================================
+   PHOTO OVERLAY
+========================================================= */
+
+.photo-overlay {
+
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    rgba(10,7,17,.25);
+
+  opacity: 0;
+
+  transition:
+    opacity .4s ease;
+
+}
+
+.memory-card:hover
+.photo-overlay {
+
+  opacity: 1;
+
+}
+
+.view-icon {
+
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid rgba(255,255,255,.35);
+
+  border-radius: 50%;
+
+  background:
+    rgba(0,0,0,.25);
+
+  backdrop-filter:
+    blur(10px);
+
+}
+
+.view-icon
+.material-symbols-outlined {
+
+  font-size: 1.1rem;
+
+}
+
+
+/* =========================================================
+   PHOTO NUMBER
+========================================================= */
+
+.photo-number {
+
+  position: absolute;
+
+  top: .8rem;
+  right: .8rem;
+
+  padding:
+    .35rem .5rem;
+
+  border:
+    1px solid rgba(255,255,255,.15);
+
+  border-radius: 999px;
+
+  background:
+    rgba(0,0,0,.25);
+
+  backdrop-filter:
+    blur(10px);
+
+  color:
+    rgba(255,255,255,.75);
+
+  font-size: .5rem;
+
+}
+
+
+/* =========================================================
+   CAPTION
+========================================================= */
+
+.memory-caption {
+
+  position: relative;
+
+  padding:
+    1.2rem .5rem .6rem;
+
+}
+
+.memory-date {
+
+  color:
+    rgba(244,114,182,.7);
+
+  font-size: .5rem;
+
+  letter-spacing: .15em;
+
+  text-transform: uppercase;
+
+}
+
+.memory-caption h3 {
+
+  margin:
+    .4rem 0;
+
+  font-size: 1rem;
+
+}
+
+.memory-caption p {
+
+  margin: 0;
+
+  max-width: 90%;
+
+  color:
+    rgba(255,255,255,.4);
+
+  font-size: .65rem;
+
+  line-height: 1.7;
+
+}
+
+.memory-arrow {
+
+  position: absolute;
+
+  right: .5rem;
+  bottom: .6rem;
+
+  color:
+    #f9a8d4;
+
+  font-size: .9rem;
+
+  transition:
+    transform .3s ease;
+
+}
+
+.memory-card:hover
+.memory-arrow {
+
+  transform:
+    translateX(5px);
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.memory-footer {
+
+  position: relative;
+
+  z-index: 5;
+
+  width: min(700px, 92%);
+
+  margin:
+    6rem auto 0;
+
+  text-align: center;
+
+}
+
+.footer-decoration {
+
+  color: #f472b6;
+
+  font-size: 1.2rem;
+
+  animation:
+    heartbeat 2s ease-in-out infinite;
+
+}
+
+.memory-footer h2 {
+
+  margin:
+    1rem 0 .5rem;
+
+  font-size:
+    clamp(1.5rem, 4vw, 2.5rem);
+
+}
+
+.memory-footer p {
+
+  margin: 0 0 1.5rem;
+
+  color:
+    rgba(255,255,255,.4);
+
+  font-size: .75rem;
+
+}
+
+.moments-btn {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: .8rem;
+
+  padding:
+    .8rem 1.2rem;
+
+  border:
+    1px solid rgba(244,114,182,.3);
+
+  border-radius: 999px;
+
+  background:
+    rgba(244,114,182,.05);
+
+  color: #fff;
+
+  font-family: inherit;
+
+  font-size: .65rem;
+
+  cursor: pointer;
+
+  transition:
+    transform .3s ease,
+    background .3s ease;
+
+}
+
+.moments-btn:hover {
+
+  transform:
+    translateY(-3px);
+
+  background:
+    rgba(244,114,182,.1);
+
+}
+
+.moments-btn span {
+
+  color: #f9a8d4;
+
+}
+
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+.lightbox {
+
+  position: fixed;
+
+  z-index: 100;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem;
+
+  background:
+    rgba(5,3,10,.88);
+
+  backdrop-filter:
+    blur(20px);
+
+  animation:
+    lightboxIn .3s ease both;
+
+}
+
+.close-lightbox {
+
+  position: absolute;
+
+  top: 1.5rem;
+  right: 1.5rem;
+
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid rgba(255,255,255,.15);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.05);
+
+  color: #fff;
+
+  cursor: pointer;
+
+}
+
+.close-lightbox:hover {
+
+  background:
+    rgba(255,255,255,.1);
+
+}
+
+.lightbox-content {
+
+  width: min(950px, 95%);
+
+  max-height: 90vh;
+
+  display: grid;
+
+  grid-template-columns:
+    1.4fr .6fr;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(255,255,255,.1);
+
+  border-radius: 20px;
+
+  background:
+    rgba(20,15,28,.95);
+
+  box-shadow:
+    0 40px 100px rgba(0,0,0,.6);
+
+  animation:
+    lightboxContent .4s ease both;
+
+}
+
+.lightbox-image {
+
+  min-height: 450px;
+
+}
+
+.lightbox-image img {
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+}
+
+.lightbox-info {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding: 2rem;
+
+}
+
+.lightbox-info > span {
+
+  color:
+    #f9a8d4;
+
+  font-size: .55rem;
+
+  letter-spacing: .2em;
+
+}
+
+.lightbox-info h2 {
+
+  margin:
+    .6rem 0;
+
+  font-size:
+    clamp(1.5rem, 4vw, 2.5rem);
+
+}
+
+.lightbox-info p {
+
+  margin: 0;
+
+  color:
+    rgba(255,255,255,.45);
+
+  font-size: .75rem;
+
+  line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes twinkle {
+
+  from {
+    opacity: .1;
+    transform: scale(.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+
+}
+
+@keyframes orbMove {
+
+  from {
+    transform: translate(0,0);
+  }
+
+  to {
+    transform: translate(100px,80px);
+  }
+
+}
+
+@keyframes titleReveal {
+
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+@keyframes cardReveal {
+
+  from {
+    opacity: 0;
+    transform:
+      translateY(40px)
+      rotate(var(--rotation));
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      rotate(var(--rotation));
+  }
+
+}
+
+@keyframes heartbeat {
+
+  0%,100% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.25);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+}
+
+@keyframes lightboxIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+@keyframes lightboxContent {
+
+  from {
+    opacity: 0;
+    transform: scale(.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .gallery {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+  }
+
+  .memory-card.featured {
+
+    grid-row:
+      auto;
+
+  }
+
+  .memory-card.featured
+  .photo-wrapper {
+
+    aspect-ratio:
+      4 / 3;
+
+  }
+
+  .lightbox-content {
+
+    grid-template-columns:
+      1fr;
+
+    max-height:
+      90vh;
+
+    overflow-y:
+      auto;
+
+  }
+
+  .lightbox-image {
+
+    min-height:
+      350px;
+
+    max-height:
+      55vh;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .page-header {
+
+    padding:
+      1.3rem 0
+      3rem;
+
+  }
+
+  .header-title {
+
+    margin-top:
+      3rem;
+
+  }
+
+  .header-title h1 {
+
+    font-size:
+      clamp(2.5rem, 13vw, 4rem);
+
+  }
+
+  .header-title p {
+
+    font-size:
+      .72rem;
+
+  }
+
+  .intro-section {
+
+    width: 92%;
+
+    grid-template-columns:
+      1fr;
+
+    gap: .7rem;
+
+    margin-bottom:
+      3rem;
+
+  }
+
+  .intro-number {
+
+    font-size:
+      .6rem;
+
+  }
+
+  .intro-text h2 {
+
+    font-size:
+      1.7rem;
+
+  }
+
+  .gallery {
+
+    width: 92%;
+
+    grid-template-columns:
+      1fr;
+
+    gap: 1.5rem;
+
+  }
+
+  .memory-card {
+
+    transform:
+      rotate(0deg);
+
+  }
+
+  .memory-card:hover {
+
+    transform:
+      translateY(-6px)
+      scale(1.01);
+
+  }
+
+  .memory-card.featured
+  .photo-wrapper {
+
+    aspect-ratio:
+      4 / 3;
+
+  }
+
+  .memory-caption {
+
+    padding:
+      1rem .4rem .5rem;
+
+  }
+
+  .memory-caption h3 {
+
+    font-size:
+      .95rem;
+
+  }
+
+  .memory-caption p {
+
+    font-size:
+      .62rem;
+
+  }
+
+  .memory-footer {
+
+    margin-top:
+      4rem;
+
+  }
+
+  .lightbox {
+
+    padding:
+      1rem;
+
+  }
+
+  .lightbox-content {
+
+    width: 100%;
+
+    border-radius:
+      16px;
+
+  }
+
+  .lightbox-image {
+
+    min-height:
+      260px;
+
+    max-height:
+      45vh;
+
+  }
+
+  .lightbox-info {
+
+    padding:
+      1.3rem;
+
+  }
+
+  .lightbox-info h2 {
+
+    font-size:
+      1.6rem;
+
+  }
+
+  .close-lightbox {
+
+    top: .8rem;
+    right: .8rem;
+
+    width: 40px;
+    height: 40px;
+
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .header-title h1 {
+
+    font-size:
+      2.4rem;
+
+  }
+
+  .intro-text h2 {
+
+    font-size:
+      1.5rem;
+
+  }
+
+  .memory-footer h2 {
+
+    font-size:
+      1.4rem;
+
+  }
+
+}

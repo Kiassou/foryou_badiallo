@@ -1,0 +1,250 @@
+<div class="message-page">
+
+  <!-- BACKGROUND -->
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <div class="floating-hearts">
+    @for (heart of hearts; track $index) {
+      <span
+        class="heart"
+        [style.left.%]="heart.left"
+        [style.animation-delay.s]="heart.delay"
+        [style.animation-duration.s]="heart.duration">
+        {{ heart.symbol }}
+      </span>
+    }
+  </div>
+
+  <!-- HEADER -->
+  <header class="message-header">
+
+    <button
+      type="button"
+      class="back-btn"
+      (click)="goHome()">
+
+      <span class="material-symbols-outlined">
+        arrow_back
+      </span>
+
+      Accueil
+    </button>
+
+    <div class="header-title">
+
+      <span class="chapter">
+        ✦ CHAPTER THREE ✦
+      </span>
+
+      <h1>
+        Un message
+      </h1>
+
+      <p>
+        Quelques mots pour une personne spéciale. 🤍
+      </p>
+
+    </div>
+
+  </header>
+
+
+  <!-- ENVELOPE -->
+  <main class="message-container">
+
+    @if (!letterOpened) {
+
+      <section class="envelope-section">
+
+        <div class="envelope-shadow"></div>
+
+        <div
+          class="envelope"
+          (click)="openLetter()">
+
+          <div class="envelope-back"></div>
+
+          <div class="envelope-paper">
+
+            <div class="paper-content">
+
+              <span class="mini-heart">
+                ♥
+              </span>
+
+              <span>
+                Pour
+              </span>
+
+              <strong>
+                Badiallo
+              </strong>
+
+            </div>
+
+          </div>
+
+          <div class="envelope-front"></div>
+
+          <div class="envelope-flap"></div>
+
+          <div class="seal">
+            ♥
+          </div>
+
+        </div>
+
+
+        <div class="open-hint">
+
+          <span class="material-symbols-outlined">
+            touch_app
+          </span>
+
+          <span>
+            Clique sur l'enveloppe
+          </span>
+
+        </div>
+
+      </section>
+
+    }
+
+
+    <!-- LETTER -->
+    @if (letterOpened) {
+
+      <section class="letter-wrapper">
+
+        <article class="letter">
+
+          <div class="letter-decoration top">
+            ✦
+          </div>
+
+
+          <div class="letter-header">
+
+            <span>
+              31 AOÛT
+            </span>
+
+            <div class="small-heart">
+              ♥
+            </div>
+
+          </div>
+
+
+          <div class="letter-body">
+
+            <p class="greeting">
+              À toi, Badiallo... ❤️
+            </p>
+
+
+            <p>
+              Aujourd'hui n'est pas simplement
+              une journée comme les autres.
+            </p>
+
+
+            <p>
+              C'est le jour où une personne
+              exceptionnelle mérite qu'on lui rappelle
+              à quel point elle est précieuse.
+            </p>
+
+
+            <p>
+              Alors, pour ton anniversaire, je voulais
+              t'offrir quelque chose de différent.
+            </p>
+
+
+            <p>
+              Pas seulement un cadeau que l'on peut
+              emballer, mais quelques mots que tu
+              pourras garder quelque part.
+            </p>
+
+
+            <p class="highlight">
+              Merci pour les sourires,
+              les souvenirs et tous ces petits
+              moments qui rendent la vie plus belle.
+            </p>
+
+
+            <p>
+              Je te souhaite une année remplie
+              de bonheur, de réussite, de belles
+              rencontres et de rêves qui deviennent
+              réalité.
+            </p>
+
+
+            <p>
+              Continue d'être cette personne
+              unique que tu es.
+            </p>
+
+
+            <p class="final-message">
+              Et surtout...
+              <br>
+
+              <strong>
+                ne change jamais pour plaire au monde.
+              </strong>
+            </p>
+
+
+            <div class="signature">
+
+              <span>
+                Avec beaucoup d'affection,
+              </span>
+
+              <strong>
+                ❤️
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <div class="letter-decoration bottom">
+            ✦
+          </div>
+
+        </article>
+
+
+        <button
+          type="button"
+          class="surprise-button"
+          (click)="goToSurprise()">
+
+          <span class="material-symbols-outlined">
+            redeem
+          </span>
+
+          J'ai encore une surprise...
+
+          <span class="arrow">
+            →
+          </span>
+
+        </button>
+
+      </section>
+
+    }
+
+  </main>
+
+</div>

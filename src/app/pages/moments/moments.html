@@ -1,0 +1,318 @@
+<div class="moments-page">
+
+  <!-- ==========================================
+       BACKGROUND
+  =========================================== -->
+
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+
+  <div class="stars">
+
+    @for (star of stars; track $index) {
+
+      <span
+        class="star"
+        [style.left.%]="star.left"
+        [style.top.%]="star.top"
+        [style.animation-delay.s]="star.delay">
+      </span>
+
+    }
+
+  </div>
+
+
+  <!-- ==========================================
+       HEADER
+  =========================================== -->
+
+  <header class="moments-header">
+
+    <button
+      type="button"
+      class="back-btn"
+      (click)="goHome()">
+
+      <span class="material-symbols-outlined">
+        arrow_back
+      </span>
+
+      Accueil
+
+    </button>
+
+
+    <div class="header-content">
+
+      <span class="chapter">
+        ✦ CHAPTER TWO ✦
+      </span>
+
+      <h1>
+        Les moments
+      </h1>
+
+      <p>
+        Parce qu'une belle histoire est faite
+        de petits instants qui deviennent
+        de grands souvenirs. 🤍
+      </p>
+
+    </div>
+
+  </header>
+
+
+  <!-- ==========================================
+       INTRO
+  =========================================== -->
+
+  <section class="moments-intro">
+
+    <div class="intro-line"></div>
+
+    <span>
+      UNE PETITE HISTOIRE
+    </span>
+
+    <h2>
+      Chaque moment compte.
+    </h2>
+
+    <p>
+      Il y a des journées ordinaires qui,
+      avec le temps, deviennent extraordinaires.
+    </p>
+
+  </section>
+
+
+  <!-- ==========================================
+       TIMELINE
+  =========================================== -->
+
+  <main class="timeline">
+
+    <div class="timeline-line"></div>
+
+
+    @for (
+      moment of moments;
+      track moment.id;
+      let index = $index
+    ) {
+
+      <article
+        class="timeline-item"
+        [class.left]="index % 2 === 0"
+        [class.right]="index % 2 !== 0"
+        [style.animation-delay.ms]="index * 180">
+
+
+        <!-- DATE -->
+
+        <div class="timeline-date">
+
+          <span class="date-day">
+            {{ moment.day }}
+          </span>
+
+          <span class="date-month">
+            {{ moment.month }}
+          </span>
+
+        </div>
+
+
+        <!-- DOT -->
+
+        <div class="timeline-dot">
+
+          <span class="material-symbols-outlined">
+            {{ moment.icon }}
+          </span>
+
+        </div>
+
+
+        <!-- CARD -->
+
+        <div
+          class="moment-card"
+          (click)="openMoment(moment)">
+
+
+          @if (moment.image) {
+
+            <div class="moment-image">
+
+              <img
+                [src]="moment.image"
+                [alt]="moment.title"
+                loading="lazy"
+              />
+
+              <div class="image-overlay">
+
+                <span class="material-symbols-outlined">
+                  zoom_in
+                </span>
+
+              </div>
+
+            </div>
+
+          }
+
+
+          <div class="moment-content">
+
+            <span class="moment-category">
+              {{ moment.category }}
+            </span>
+
+            <h3>
+              {{ moment.title }}
+            </h3>
+
+            <p>
+              {{ moment.description }}
+            </p>
+
+
+            <div class="moment-footer">
+
+              <span>
+                ✦
+              </span>
+
+              <span>
+                Un petit morceau de bonheur
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    }
+
+  </main>
+
+
+  <!-- ==========================================
+       FINAL MESSAGE
+  =========================================== -->
+
+  <section class="moments-ending">
+
+    <div class="ending-heart">
+      ♥
+    </div>
+
+    <span>
+      ET L'HISTOIRE CONTINUE...
+    </span>
+
+    <h2>
+      Les meilleurs moments
+      <br>
+      <em>sont encore à venir.</em>
+    </h2>
+
+    <button
+      type="button"
+      class="surprise-btn"
+      (click)="goToSurprise()">
+
+      <span class="material-symbols-outlined">
+        redeem
+      </span>
+
+      Aller vers la surprise
+
+      <span class="arrow">
+        →
+      </span>
+
+    </button>
+
+  </section>
+
+
+  <!-- ==========================================
+       MODAL
+  =========================================== -->
+
+  @if (selectedMoment) {
+
+    <div
+      class="moment-modal"
+      (click)="closeMoment()">
+
+
+      <button
+        type="button"
+        class="modal-close"
+        (click)="closeMoment(); $event.stopPropagation()">
+
+        <span class="material-symbols-outlined">
+          close
+        </span>
+
+      </button>
+
+
+      <div
+        class="modal-card"
+        (click)="$event.stopPropagation()">
+
+
+        @if (selectedMoment.image) {
+
+          <div class="modal-image">
+
+            <img
+              [src]="selectedMoment.image"
+              [alt]="selectedMoment.title"
+            />
+
+          </div>
+
+        }
+
+
+        <div class="modal-content">
+
+          <span class="modal-category">
+            {{ selectedMoment.category }}
+          </span>
+
+          <h2>
+            {{ selectedMoment.title }}
+          </h2>
+
+          <div class="modal-date">
+
+            {{ selectedMoment.day }}
+            {{ selectedMoment.month }}
+
+          </div>
+
+          <p>
+            {{ selectedMoment.description }}
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  }
+
+</div>

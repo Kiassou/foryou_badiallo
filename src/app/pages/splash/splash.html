@@ -1,0 +1,128 @@
+<section class="splash-page">
+
+  <!-- Background effects -->
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+  <div class="background-glow glow-3"></div>
+
+  <!-- Stars -->
+  <div class="stars">
+    @for (star of stars; track $index) {
+      <span
+        class="star"
+        [style.left.%]="star.left"
+        [style.top.%]="star.top"
+        [style.animation-delay.s]="star.delay"
+        [style.animation-duration.s]="star.duration">
+      </span>
+    }
+  </div>
+
+  <!-- Floating hearts -->
+  <div class="hearts">
+    @for (heart of hearts; track $index) {
+      <span
+        class="heart"
+        [style.left.%]="heart.left"
+        [style.animation-delay.s]="heart.delay"
+        [style.animation-duration.s]="heart.duration">
+        ♥
+      </span>
+    }
+  </div>
+
+  <!-- Main content -->
+  <main class="splash-content">
+
+    <!-- Small top label -->
+    <div class="intro-label">
+      <span class="label-line"></span>
+
+      <span>
+        Une petite surprise pour toi
+      </span>
+
+      <span class="label-line"></span>
+    </div>
+
+    <!-- Birthday text -->
+    <div class="birthday-text">
+
+      <p class="pre-title">
+        ✨ THIS DAY IS FOR YOU ✨
+      </p>
+
+      <h1>
+        <span class="happy">HAPPY</span>
+        <span class="birthday">BIRTHDAY</span>
+      </h1>
+
+    </div>
+
+    <!-- Name -->
+    <div class="name-container">
+
+      <p class="for-you">
+        FOR
+      </p>
+
+      <h2>
+        BADIALLO
+      </h2>
+
+      <div class="name-divider">
+        <span></span>
+        <i>♥</i>
+        <span></span>
+      </div>
+
+      <p class="full-name">
+        CHEICK TOUNKARA
+      </p>
+
+    </div>
+
+    <!-- Message -->
+    <p class="intro-message">
+      Aujourd'hui, une nouvelle page de ton histoire
+      commence à s'écrire... ✨
+    </p>
+
+    <!-- CTA -->
+    <button
+      type="button"
+      class="discover-btn"
+      (click)="enter()">
+
+      <span class="btn-shine"></span>
+
+      <span class="btn-icon">
+        🎁
+      </span>
+
+      <span class="btn-text">
+        Découvrir la surprise
+      </span>
+
+      <span class="btn-arrow">
+        →
+      </span>
+
+    </button>
+
+    <!-- Bottom decoration -->
+    <div class="bottom-decoration">
+      <span></span>
+      <small>
+        A SPECIAL DAY • A SPECIAL PERSON
+      </small>
+      <span></span>
+    </div>
+
+  </main>
+
+  <!-- Bottom corner decoration -->
+  <div class="corner corner-left"></div>
+  <div class="corner corner-right"></div>
+
+</section>

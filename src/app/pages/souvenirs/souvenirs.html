@@ -1,0 +1,290 @@
+<div class="souvenirs-page">
+
+  <!-- ==========================================
+       BACKGROUND
+  =========================================== -->
+
+  <div class="background-orb orb-1"></div>
+  <div class="background-orb orb-2"></div>
+
+  <div class="stars">
+
+    @for (star of stars; track $index) {
+
+      <span
+        class="star"
+        [style.left.%]="star.left"
+        [style.top.%]="star.top"
+        [style.animation-delay.s]="star.delay"
+        [style.animation-duration.s]="star.duration">
+      </span>
+
+    }
+
+  </div>
+
+
+  <!-- ==========================================
+       HEADER
+  =========================================== -->
+
+  <header class="page-header">
+
+    <button
+      type="button"
+      class="back-btn"
+      (click)="goHome()">
+
+      <span class="material-symbols-outlined">
+        arrow_back
+      </span>
+
+      <span>
+        Accueil
+      </span>
+
+    </button>
+
+
+    <div class="header-title">
+
+      <span class="eyebrow">
+        ✨ CHAPTER ONE ✨
+      </span>
+
+      <h1>
+        Nos souvenirs
+      </h1>
+
+      <p>
+        Parce que certains moments méritent
+        de rester pour toujours. 💕
+      </p>
+
+    </div>
+
+
+    <div class="header-decoration">
+
+      <span></span>
+
+      <i>♥</i>
+
+      <span></span>
+
+    </div>
+
+  </header>
+
+
+  <!-- ==========================================
+       INTRO
+  =========================================== -->
+
+  <section class="intro-section">
+
+    <div class="intro-number">
+      01
+    </div>
+
+    <div class="intro-text">
+
+      <span>
+        A LITTLE COLLECTION
+      </span>
+
+      <h2>
+        Des moments,
+        <em>des sourires</em>
+        et des histoires.
+      </h2>
+
+      <p>
+        Une petite collection de souvenirs
+        qui rendent cette histoire encore
+        plus belle.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==========================================
+       PHOTO GALLERY
+  =========================================== -->
+
+  <main class="gallery">
+
+    @for (
+      memory of memories;
+      track memory.id;
+      let index = $index
+    ) {
+
+      <article
+        class="memory-card"
+        [class.featured]="memory.featured"
+        [style.--rotation]="memory.rotation + 'deg'"
+        [style.animation-delay.ms]="index * 120"
+        (click)="openMemory(memory)">
+
+
+        <!-- Photo -->
+
+        <div class="photo-wrapper">
+
+          <img
+            [src]="memory.image"
+            [alt]="memory.title"
+            loading="lazy"
+          />
+
+
+          <!-- Overlay -->
+
+          <div class="photo-overlay">
+
+            <span class="view-icon">
+              <span class="material-symbols-outlined">
+                fullscreen
+              </span>
+            </span>
+
+          </div>
+
+
+          <!-- Number -->
+
+          <span class="photo-number">
+            {{ (index + 1).toString().padStart(2, '0') }}
+          </span>
+
+        </div>
+
+
+        <!-- Caption -->
+
+        <div class="memory-caption">
+
+          <span class="memory-date">
+            {{ memory.date }}
+          </span>
+
+          <h3>
+            {{ memory.title }}
+          </h3>
+
+          <p>
+            {{ memory.description }}
+          </p>
+
+          <span class="memory-arrow">
+            →
+          </span>
+
+        </div>
+
+      </article>
+
+    }
+
+  </main>
+
+
+  <!-- ==========================================
+       EMPTY / MORE
+  =========================================== -->
+
+  <section class="memory-footer">
+
+    <div class="footer-decoration">
+      ✦
+    </div>
+
+    <h2>
+      Et ce n'est que le début...
+    </h2>
+
+    <p>
+      D'autres souvenirs restent encore
+      à écrire. ✨
+    </p>
+
+    <button
+      type="button"
+      class="moments-btn"
+      (click)="goToMoments()">
+
+      Découvrir les moments
+
+      <span>
+        →
+      </span>
+
+    </button>
+
+  </section>
+
+
+  <!-- ==========================================
+       LIGHTBOX
+  =========================================== -->
+
+  @if (selectedMemory) {
+
+    <div
+      class="lightbox"
+      (click)="closeMemory()">
+
+
+      <button
+        type="button"
+        class="close-lightbox"
+        (click)="closeMemory(); $event.stopPropagation()">
+
+        <span class="material-symbols-outlined">
+          close
+        </span>
+
+      </button>
+
+
+      <div
+        class="lightbox-content"
+        (click)="$event.stopPropagation()">
+
+
+        <div class="lightbox-image">
+
+          <img
+            [src]="selectedMemory.image"
+            [alt]="selectedMemory.title"
+          />
+
+        </div>
+
+
+        <div class="lightbox-info">
+
+          <span>
+            {{ selectedMemory.date }}
+          </span>
+
+          <h2>
+            {{ selectedMemory.title }}
+          </h2>
+
+          <p>
+            {{ selectedMemory.description }}
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  }
+
+</div>

@@ -1,0 +1,1230 @@
+/* =========================================================
+   PAGE
+========================================================= */
+
+.message-page {
+
+  position: relative;
+
+  min-height: 100svh;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(236,72,153,.12),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 0% 80%,
+      rgba(139,92,246,.08),
+      transparent 30%
+    ),
+    #090711;
+
+  color: #fff;
+
+  padding-bottom: 5rem;
+
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.glow {
+
+  position: absolute;
+
+  width: 28rem;
+  height: 28rem;
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  opacity: .08;
+
+  pointer-events: none;
+
+}
+
+.glow-1 {
+
+  top: 20rem;
+  left: -15rem;
+
+  background: #ec4899;
+
+  animation:
+    glowMove 14s ease-in-out infinite alternate;
+
+}
+
+.glow-2 {
+
+  right: -15rem;
+  bottom: 5rem;
+
+  background: #8b5cf6;
+
+  animation:
+    glowMove 18s ease-in-out infinite alternate-reverse;
+
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.floating-hearts {
+
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+}
+
+.heart {
+
+  position: absolute;
+
+  bottom: -30px;
+
+  color: rgba(244,114,182,.25);
+
+  font-size:
+    clamp(.6rem, 1.5vw, 1.1rem);
+
+  animation:
+    floatHeart linear infinite;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.message-header {
+
+  position: relative;
+
+  z-index: 5;
+
+  width: min(1050px, 92%);
+
+  margin: auto;
+
+  padding:
+    2rem 0
+    3rem;
+
+}
+
+.back-btn {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: .4rem;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color:
+    rgba(255,255,255,.45);
+
+  font-family: inherit;
+
+  font-size: .65rem;
+
+  cursor: pointer;
+
+  transition:
+    color .3s ease,
+    transform .3s ease;
+
+}
+
+.back-btn:hover {
+
+  color: #fff;
+
+  transform:
+    translateX(-4px);
+
+}
+
+.back-btn .material-symbols-outlined {
+
+  font-size: 1rem;
+
+}
+
+.header-title {
+
+  max-width: 650px;
+
+  margin:
+    4rem auto 0;
+
+  text-align: center;
+
+  animation:
+    headerReveal .9s ease both;
+
+}
+
+.chapter {
+
+  color: #f9a8d4;
+
+  font-size: .55rem;
+
+  letter-spacing: .3em;
+
+}
+
+.header-title h1 {
+
+  margin:
+    .8rem 0;
+
+  font-size:
+    clamp(3rem, 8vw, 6rem);
+
+  line-height: 1;
+
+  background:
+    linear-gradient(
+      120deg,
+      #fff,
+      #f9a8d4,
+      #c084fc
+    );
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  color: transparent;
+
+}
+
+.header-title p {
+
+  color:
+    rgba(255,255,255,.4);
+
+  font-size: .75rem;
+
+}
+
+
+/* =========================================================
+   MESSAGE CONTAINER
+========================================================= */
+
+.message-container {
+
+  position: relative;
+
+  z-index: 5;
+
+  width: min(900px, 92%);
+
+  margin: auto;
+
+}
+
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+.envelope-section {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 520px;
+
+  animation:
+    envelopeSectionIn .8s ease both;
+
+}
+
+.envelope {
+
+  position: relative;
+
+  width: 360px;
+
+  height: 240px;
+
+  cursor: pointer;
+
+  perspective: 1000px;
+
+  filter:
+    drop-shadow(
+      0 35px 45px rgba(0,0,0,.4)
+    );
+
+  transition:
+    transform .5s ease;
+
+}
+
+.envelope:hover {
+
+  transform:
+    translateY(-10px)
+    rotate(-1deg);
+
+}
+
+
+/* Envelope base */
+
+.envelope-back {
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4a1734,
+      #6b214b
+    );
+
+}
+
+
+/* Paper */
+
+.envelope-paper {
+
+  position: absolute;
+
+  left: 25px;
+  right: 25px;
+
+  bottom: 10px;
+
+  height: 210px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fffafc,
+      #fce7f3
+    );
+
+  color: #341326;
+
+  box-shadow:
+    0 5px 15px rgba(0,0,0,.15);
+
+  transition:
+    transform .8s cubic-bezier(.2,.8,.2,1);
+
+}
+
+.envelope:hover
+.envelope-paper {
+
+  transform:
+    translateY(-35px);
+
+}
+
+.paper-content {
+
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: .3rem;
+
+  font-family:
+    Georgia,
+    serif;
+
+}
+
+.paper-content > span {
+
+  font-size: .8rem;
+
+  font-style: italic;
+
+}
+
+.paper-content strong {
+
+  font-size: 1.7rem;
+
+}
+
+.mini-heart {
+
+  color: #ec4899;
+
+}
+
+
+/* Front */
+
+.envelope-front {
+
+  position: absolute;
+
+  inset: 0;
+
+  clip-path:
+    polygon(
+      0 0,
+      50% 55%,
+      100% 0,
+      100% 100%,
+      0 100%
+    );
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #681f4b,
+      #8b285d
+    );
+
+}
+
+
+/* Flap */
+
+.envelope-flap {
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 58%;
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      50% 100%
+    );
+
+  background:
+    linear-gradient(
+      135deg,
+      #8f315f,
+      #681f4b
+    );
+
+  transform-origin:
+    top center;
+
+  transition:
+    transform .8s ease;
+
+  z-index: 4;
+
+}
+
+.envelope:hover
+.envelope-flap {
+
+  transform:
+    rotateX(25deg);
+
+}
+
+
+/* Seal */
+
+.seal {
+
+  position: absolute;
+
+  z-index: 6;
+
+  left: 50%;
+  top: 55%;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transform:
+    translate(-50%, -50%);
+
+  border:
+    3px solid #f9a8d4;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #e94b8b,
+      #9d285e
+    );
+
+  color: #fff;
+
+  font-size: 1.2rem;
+
+  box-shadow:
+    0 5px 20px rgba(0,0,0,.3);
+
+  animation:
+    sealPulse 2s ease-in-out infinite;
+
+}
+
+
+/* Shadow */
+
+.envelope-shadow {
+
+  position: absolute;
+
+  width: 280px;
+  height: 30px;
+
+  margin-top: 270px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(0,0,0,.3);
+
+  filter: blur(15px);
+
+}
+
+
+/* Hint */
+
+.open-hint {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: .5rem;
+
+  margin-top: 4rem;
+
+  color:
+    rgba(255,255,255,.3);
+
+  font-size: .6rem;
+
+  animation:
+    hintPulse 2s ease-in-out infinite;
+
+}
+
+.open-hint .material-symbols-outlined {
+
+  font-size: .9rem;
+
+  color: #f472b6;
+
+}
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+.letter-wrapper {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  animation:
+    letterReveal 1s cubic-bezier(.2,.8,.2,1) both;
+
+}
+
+.letter {
+
+  position: relative;
+
+  width: min(720px, 100%);
+
+  padding:
+    4rem 5rem;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fffafc,
+      #fff7fa
+    );
+
+  color: #351b2b;
+
+  border-radius: 3px;
+
+  box-shadow:
+    0 40px 100px rgba(0,0,0,.4),
+    0 0 0 1px rgba(255,255,255,.5);
+
+}
+
+
+/* Paper texture */
+
+.letter::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: .25;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      rgba(130,60,90,.06) 32px
+    );
+
+}
+
+
+/* Decorations */
+
+.letter-decoration {
+
+  position: absolute;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  color:
+    #e94b8b;
+
+  font-size: 1rem;
+
+}
+
+.letter-decoration.top {
+
+  top: 1.5rem;
+
+}
+
+.letter-decoration.bottom {
+
+  bottom: 1.5rem;
+
+}
+
+
+/* Letter header */
+
+.letter-header {
+
+  position: relative;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding-bottom: 1.5rem;
+
+  border-bottom:
+    1px solid rgba(120,50,80,.15);
+
+}
+
+.letter-header > span {
+
+  color:
+    rgba(80,30,55,.45);
+
+  font-size: .55rem;
+
+  letter-spacing: .25em;
+
+}
+
+.small-heart {
+
+  color: #e94b8b;
+
+  animation:
+    heartBeat 1.8s ease-in-out infinite;
+
+}
+
+
+/* Body */
+
+.letter-body {
+
+  position: relative;
+
+  padding-top: 2rem;
+
+  font-family:
+    Georgia,
+    'Times New Roman',
+    serif;
+
+  font-size:
+    clamp(.9rem, 2vw, 1rem);
+
+  line-height: 2;
+
+}
+
+.letter-body p {
+
+  margin:
+    0 0 1.3rem;
+
+}
+
+.greeting {
+
+  color: #9d285e;
+
+  font-size: 1.3rem;
+
+  font-weight: bold;
+
+}
+
+.highlight {
+
+  padding:
+    1rem 1.2rem;
+
+  border-left:
+    2px solid #e94b8b;
+
+  background:
+    rgba(244,114,182,.06);
+
+  color: #6b214b;
+
+  font-style: italic;
+
+}
+
+.final-message {
+
+  margin-top: 2rem !important;
+
+  text-align: center;
+
+  color: #6b214b;
+
+}
+
+.final-message strong {
+
+  color: #9d285e;
+
+}
+
+.signature {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  margin-top: 2.5rem;
+
+  color:
+    rgba(70,30,50,.5);
+
+  font-size: .8rem;
+
+}
+
+.signature strong {
+
+  margin-top: .3rem;
+
+  color: #e94b8b;
+
+  font-size: 1.4rem;
+
+}
+
+
+/* =========================================================
+   SURPRISE BUTTON
+========================================================= */
+
+.surprise-button {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: .7rem;
+
+  margin-top: 2rem;
+
+  padding:
+    .9rem 1.4rem;
+
+  border:
+    1px solid rgba(244,114,182,.3);
+
+  border-radius: 999px;
+
+  background:
+    rgba(244,114,182,.06);
+
+  color: #fff;
+
+  font-family: inherit;
+
+  font-size: .65rem;
+
+  cursor: pointer;
+
+  transition:
+    transform .3s ease,
+    background .3s ease;
+
+}
+
+.surprise-button:hover {
+
+  transform:
+    translateY(-4px);
+
+  background:
+    rgba(244,114,182,.13);
+
+}
+
+.surprise-button
+.material-symbols-outlined {
+
+  color: #f9a8d4;
+
+  font-size: 1rem;
+
+}
+
+.surprise-button .arrow {
+
+  color: #f9a8d4;
+
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes headerReveal {
+
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+@keyframes envelopeSectionIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+@keyframes sealPulse {
+
+  0%, 100% {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.08);
+  }
+
+}
+
+@keyframes hintPulse {
+
+  0%, 100% {
+    opacity: .4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+}
+
+@keyframes heartBeat {
+
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.25);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+}
+
+@keyframes floatHeart {
+
+  0% {
+    transform:
+      translateY(0)
+      rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: .7;
+  }
+
+  90% {
+    opacity: .2;
+  }
+
+  100% {
+    transform:
+      translateY(-110vh)
+      rotate(360deg);
+    opacity: 0;
+  }
+
+}
+
+@keyframes glowMove {
+
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(100px, 80px);
+  }
+
+}
+
+@keyframes letterReveal {
+
+  from {
+    opacity: 0;
+    transform:
+      translateY(50px)
+      scale(.95);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .letter {
+
+    padding:
+      3rem 3rem;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .message-header {
+
+    padding:
+      1.3rem 0
+      2.5rem;
+
+  }
+
+  .header-title {
+
+    margin-top:
+      3rem;
+
+  }
+
+  .header-title h1 {
+
+    font-size:
+      clamp(2.6rem, 13vw, 4rem);
+
+  }
+
+  .header-title p {
+
+    font-size: .7rem;
+
+    line-height: 1.7;
+
+  }
+
+  .message-container {
+
+    width:
+      92%;
+
+  }
+
+  .envelope-section {
+
+    min-height:
+      420px;
+
+  }
+
+  .envelope {
+
+    width:
+      290px;
+
+    height:
+      195px;
+
+  }
+
+  .envelope-paper {
+
+    left:
+      20px;
+
+    right:
+      20px;
+
+    height:
+      170px;
+
+  }
+
+  .paper-content strong {
+
+    font-size:
+      1.4rem;
+
+  }
+
+  .seal {
+
+    width:
+      45px;
+
+    height:
+      45px;
+
+    font-size:
+      1rem;
+
+  }
+
+  .envelope-shadow {
+
+    width:
+      230px;
+
+    margin-top:
+      220px;
+
+  }
+
+  .open-hint {
+
+    margin-top:
+      3rem;
+
+  }
+
+  .letter {
+
+    padding:
+      2.5rem 1.5rem;
+
+    border-radius:
+      2px;
+
+  }
+
+  .letter-body {
+
+    font-size:
+      .86rem;
+
+    line-height:
+      1.85;
+
+  }
+
+  .greeting {
+
+    font-size:
+      1.1rem;
+
+  }
+
+  .highlight {
+
+    padding:
+      .8rem;
+
+  }
+
+  .signature {
+
+    margin-top:
+      2rem;
+
+  }
+
+  .surprise-button {
+
+    width:
+      100%;
+
+    justify-content:
+      center;
+
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .envelope {
+
+    width:
+      260px;
+
+    height:
+      175px;
+
+  }
+
+  .envelope-paper {
+
+    height:
+      150px;
+
+  }
+
+  .letter {
+
+    padding:
+      2.2rem 1.2rem;
+
+  }
+
+  .letter-body {
+
+    font-size:
+      .8rem;
+
+  }
+
+}

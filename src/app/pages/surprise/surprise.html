@@ -1,0 +1,333 @@
+<div class="surprise-page">
+
+  <!-- ==========================================
+       BACKGROUND
+  =========================================== -->
+
+  <div class="ambient-glow glow-one"></div>
+  <div class="ambient-glow glow-two"></div>
+
+  <div class="stars">
+    @for (star of stars; track $index) {
+      <span
+        class="star"
+        [style.left.%]="star.left"
+        [style.top.%]="star.top"
+        [style.animation-delay.s]="star.delay">
+      </span>
+    }
+  </div>
+
+  <!-- ==========================================
+       FLOATING PARTICLES
+  =========================================== -->
+
+  <div class="floating-particles">
+
+@for (particle of particles; track $index) {
+  <span
+    class="particle"
+    [style.left.%]="particle.left"
+    [style.animation-delay.s]="particle.delay"
+    [style.animation-duration.s]="particle.duration">
+    {{ particle.symbol }}
+  </span>
+}
+
+  </div>
+
+  <!-- ==========================================
+       HEADER
+  =========================================== -->
+
+  <header class="surprise-header">
+
+<button
+  type="button"
+  class="back-btn"
+  (click)="goBack()">
+
+  <span class="material-symbols-outlined">
+    arrow_back
+  </span>
+
+  Retour
+
+</button>
+
+<div class="chapter">
+  ✦ THE FINAL CHAPTER ✦
+</div>
+
+  </header>
+
+  <!-- ==========================================
+       INTRO
+  =========================================== -->
+
+@if (!revealed) {
+
+<main class="surprise-intro">
+
+  <span class="eyebrow">
+    UNE DERNIÈRE CHOSE...
+  </span>
+
+  <h1>
+    J'ai gardé
+    <br>
+    <em>le meilleur</em>
+    <br>
+    pour la fin.
+  </h1>
+
+  <p>
+    Une petite surprise attend
+    quelqu'un de vraiment spécial.
+  </p>
+
+
+  <!-- GIFT -->
+
+  <div
+    class="gift-zone"
+    [class.shake]="giftShaking"
+    (click)="openGift()">
+
+    <div class="gift-glow"></div>
+
+    <div class="gift">
+
+      <div class="gift-lid">
+
+        <div class="gift-ribbon-horizontal"></div>
+
+      </div>
+
+      <div class="gift-box">
+
+        <div class="gift-ribbon-vertical"></div>
+
+        <div class="gift-ribbon-center"></div>
+
+      </div>
+
+    </div>
+
+    <div class="gift-shadow"></div>
+
+  </div>
+
+
+  <button
+    type="button"
+    class="open-gift-btn"
+    (click)="openGift()">
+
+    <span class="material-symbols-outlined">
+      redeem
+    </span>
+
+    Ouvrir la surprise
+
+  </button>
+
+
+  <div class="little-hint">
+    ✦ Fais un vœu avant de cliquer ✦
+  </div>
+
+</main>
+
+}
+
+  <!-- ==========================================
+       REVEAL
+  =========================================== -->
+
+@if (revealed) {
+
+<main class="reveal-section">
+
+  <div class="burst burst-one"></div>
+  <div class="burst burst-two"></div>
+  <div class="burst burst-three"></div>
+
+
+  <!-- TOP MESSAGE -->
+
+  <div class="reveal-top">
+
+    <span>
+      ✦ 31 AOÛT ✦
+    </span>
+
+  </div>
+
+
+  <!-- CAKE -->
+
+  <div class="cake-container">
+
+    <div class="cake-glow"></div>
+
+    <div class="cake">
+
+      <div class="candle candle-one">
+        <span class="flame"></span>
+      </div>
+
+      <div class="candle candle-two">
+        <span class="flame"></span>
+      </div>
+
+      <div class="candle candle-three">
+        <span class="flame"></span>
+      </div>
+
+
+      <div class="cake-top"></div>
+
+      <div class="cake-middle">
+
+        <span class="cake-decoration d1">
+          ♥
+        </span>
+
+        <span class="cake-decoration d2">
+          ♥
+        </span>
+
+        <span class="cake-decoration d3">
+          ♥
+        </span>
+
+      </div>
+
+      <div class="cake-bottom"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- MAIN TITLE -->
+
+  <section class="birthday-title">
+
+    <span class="small-title">
+      AUJOURD'HUI, ON CÉLÈBRE...
+    </span>
+
+    <h2>
+      Joyeux
+      <br>
+
+      <span>
+        anniversaire
+      </span>
+    </h2>
+
+    <h3>
+      Badiallo Cheick TOUNKARA
+    </h3>
+
+    <div class="title-line">
+      <span>♥</span>
+    </div>
+
+  </section>
+
+
+  <!-- MESSAGE -->
+
+  <section class="final-card">
+
+    <div class="quote-mark">
+      “
+    </div>
+
+    <p>
+      Que cette nouvelle année de ta vie
+      soit remplie de bonheur, de réussite,
+      de belles surprises et de moments
+      que tu n'oublieras jamais.
+    </p>
+
+    <p>
+      Que chacun de tes rêves trouve
+      son chemin vers la réalité.
+    </p>
+
+    <strong>
+      Tu mérites tout le bonheur du monde. ❤️
+    </strong>
+
+    <div class="card-decoration">
+      ✦ ✦ ✦
+    </div>
+
+  </section>
+
+
+  <!-- FINAL -->
+
+  <section class="final-message">
+
+    <div class="heart-large">
+      ♥
+    </div>
+
+    <p>
+      Ce petit site est juste une façon
+      de te rappeler une chose...
+    </p>
+
+    <h4>
+      Tu es spéciale.
+    </h4>
+
+    <span>
+      Et aujourd'hui est ton jour. ✨
+    </span>
+
+  </section>
+
+
+  <!-- ACTIONS -->
+
+  <div class="final-actions">
+
+    <button
+      type="button"
+      class="replay-btn"
+      (click)="replay()">
+
+      <span class="material-symbols-outlined">
+        replay
+      </span>
+
+      Revoir la surprise
+
+    </button>
+
+    <button
+      type="button"
+      class="home-btn"
+      (click)="goHome()">
+
+      <span class="material-symbols-outlined">
+        home
+      </span>
+
+      Retour à l'accueil
+
+    </button>
+
+  </div>
+
+</main>
+
+}
+
+</div>
